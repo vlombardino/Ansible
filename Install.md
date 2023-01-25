@@ -15,7 +15,7 @@ apt update && apt dist-upgrade -y
 
 Install required software
 ```
-apt install openssh-server sshpass software-properties-common
+apt install openssh-server sshpass python3 software-properties-common
 ```
 
 Generate ssh keys for host and remote servers
