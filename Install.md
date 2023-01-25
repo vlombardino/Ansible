@@ -61,7 +61,7 @@ testbox ansible_host=192.168.1.200 ansible_user=box ansible_become=yes ansible_b
 debian ansible_host=192.168.1.201 ansible_user=deb ansible_become=yes ansible_become_method=sudo
 ```
 
-### Ansible commands
+### Ansible quick commands
 Ping remote hosts\
 ```ansible -m ping all```\
 Ping singe remote host\
