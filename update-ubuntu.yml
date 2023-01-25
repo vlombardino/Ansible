@@ -1,0 +1,17 @@
+ GNU nano 6.2                                              update-ubuntu.yml                                                        
+- name: Upgrade all ubuntu machines
+  hosts: all
+  tasks:
+    # Update packages
+    - name: Update repositories cache
+      apt:
+        update_cache: yes
+
+    - name: Update all packages to their latest version
+      apt:
+        name: "*"
+        state: latest
+
+    - name: Upgrade the OS (apt-get dist-upgrade)
+      apt:
+        upgrade: dist
