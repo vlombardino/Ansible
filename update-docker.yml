@@ -1,0 +1,9 @@
+GNU nano 6.2                                              update-docker.yml                                                        
+- name: Upgrade docker images with watchtower
+  hosts: docker
+  tasks:
+    - name: Run script
+      script: /root/scripts/docker-upgrade.sh
+      register: output
+
+    - debug: var=output.stdout_lines
