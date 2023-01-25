@@ -23,7 +23,15 @@ Generate ssh keys for host and remote servers
 ssh-keygen
 ```
 
-Install Ansible on Ubuntu Container
+Install and/or upgrade latest version of Ansible
+```
+python3 -m pip install ansible
+
+python3 -m pip install --upgrade ansible
+```
+
+
+Install Ansible on Ubuntu Container from repository
 ```
 add-apt-repository --yes --update ppa:ansible/ansible
 apt install ansible
