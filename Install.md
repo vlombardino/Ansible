@@ -62,17 +62,31 @@ debian ansible_host=192.168.1.201 ansible_user=deb ansible_become=yes ansible_be
 ```
 
 ### Ansible quick commands
-Ping remote hosts\
-```ansible -m ping all```\
-Ping singe remote host\
-```ansible -m ping 192.168.1.100```\
-Ping single remote host as a specific user\
-```ansible -m ping -u USERNAME 192.168.1.100```\
-Ping group in inventory file\
-```ansible -m ping GROUPNAME```\
-Upgrade for root user\
-```ansible -m shell -a 'apt update && apt dist-upgrade -y' docker```\
-Upgrade for sudo users\
-```ansible -b --become-method=sudo -m shell -a 'apt update' docker```\
-Install a package\
-```ansible -b --become-method=sudo -m shell -a 'apt install -y vim' docker```
+Ping remote hosts
+```
+ansible -m ping all
+```
+Ping singe remote host
+```
+ansible -m ping 192.168.1.100
+```
+Ping single remote host as a specific user
+```
+ansible -m ping -u USERNAME 192.168.1.100
+```
+Ping group in inventory file
+```
+ansible -m ping GROUPNAME
+```
+Upgrade for root user
+```
+ansible -m shell -a 'apt update && apt dist-upgrade -y' docker
+```
+Upgrade for sudo users
+```
+ansible -b --become-method=sudo -m shell -a 'apt update' docker
+```
+Install a package
+```
+ansible -b --become-method=sudo -m shell -a 'apt install -y vim' docker
+```
