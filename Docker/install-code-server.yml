@@ -1,0 +1,16 @@
+- name: Install code-server in Docker container
+  docker_container:
+    name: code-server
+    image: "lscr.io/linuxserver/code-server:latest"
+    ports:
+      - "8080:8443"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: "America/Los_Angeles"
+      PASSWORD: "{{ password }}"
+    volumes:
+      - "{{ ansible_env.HOME }}/code-server:/config"
+      - "{{ ansible_env.HOME }}/code-server-workspace:/home/coder/project"
+    state: started
+  register: container_result

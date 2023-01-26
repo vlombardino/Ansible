@@ -1,0 +1,19 @@
+- name: Install VS Code in Docker
+- hosts: all
+  tasks:
+  - name: Deploy Code Server
+    community.docker.docker_container:
+      name: code-server
+      image: "lscr.io/linuxserver/code-server:latest"
+      ports:
+        - "8080:8443"
+      volumes:
+        - /path/to/appdata/config:/config
+      env:
+        - PUID=1000
+        - PGID=1000
+        - TZ=America/Los_Angeles
+        - PASSWORD=password #optional
+        - SUDO_PASSWORD=password #optional
+        - DEFAULT_WORKSPACE=/config/workspace #optional
+      restart_policy: unless-stopped
