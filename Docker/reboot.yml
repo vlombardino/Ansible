@@ -1,0 +1,20 @@
+---
+- name: Reboot System
+  hosts: all
+  become: true
+  tasks:
+    - name: Reboot System
+      reboot:
+        reboot_timeout: 1800
+      ignore_errors: true
+
+    - name: Waiting for system...
+      wait_for_connection:
+        delay: 3
+        timeout: 5
+
+    - name: Check the Uptime of the servers
+      shell: "uptime"
+      register: Uptime
+
+    - debug: var=Uptime
