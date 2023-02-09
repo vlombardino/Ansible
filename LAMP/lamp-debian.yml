@@ -1,0 +1,30 @@
+---
+- name: Install LAMP Stack on Debian
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Install Apache2
+    apt: name=apache2 state=present update_cache=yes
+
+  - name: Install MySQL Server
+    apt: name=mysql-server state=present update_cache=yes
+
+  - name: Install PHP
+    apt: name=php state=present update_cache=yes
+
+  - name: Install PHP Extensions
+    apt: name={{ item }} state=present update_cache=yes
+    with_items:
+      - php-mysql
+      - php-curl
+      - php-gd
+      - php-intl
+      - php-mbstring
+      - php-soap
+      - php-xml
+      - php-zip
+#      
+# Run the playbook with the following:
+# ansible-playbook lamp-debian.yml
+#
