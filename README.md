@@ -60,16 +60,19 @@ nano /etc/ansible/hosts
 
 Add remote servers ip-address or domain name. Some examples:
 ```
+[server01]
 192.168.1.100
+192.168.1.101
+
+[server01:vars]
+ansible_user=root
+ansible_password=Pass@123
 ```
 ```
+[servers02]
 docker ansible_host=192.168.1.101
-```
-```
-testbox ansible_host=192.168.1.200 ansible_user=box ansible_become=yes ansible_become_method=sudo
-```
-```
-debian ansible_host=192.168.1.201 ansible_user=deb ansible_become=yes ansible_become_method=sudo
+testbox ansible_host=192.168.1.102 ansible_user=box ansible_become=yes ansible_become_method=sudo
+debian ansible_host=192.168.1.103 ansible_user=root ansible_password=Pass@123
 ```
 
 ### Ansible quick commands

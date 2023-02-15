@@ -1,0 +1,20 @@
+---
+- name: Update & Upgrade Ubuntu then run Watchtower
+  hosts: docker
+  tasks:
+  	- name: Watchtower will update all images then upgrade and recreate the containers.
+      shell: docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --run-once --debug --cleanup
+  tasks:
+    # Update packages
+    - name: Update repositories cache
+      apt:
+        update_cache: yes
+
+    - name: Update all packages to their latest version
+      apt:
+        name: "*"
+        state: latest
+
+    - name: Upgrade the OS (apt-get dist-upgrade)
+      apt:
+        upgrade: dist
