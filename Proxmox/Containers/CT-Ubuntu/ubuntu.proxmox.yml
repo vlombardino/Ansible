@@ -1,6 +1,6 @@
 - hosts: all
   tasks:
-  - name: Create new container with minimal options
+  - name: Create new container
     community.general.proxmox:
       node: pve
       api_user: root@pam
