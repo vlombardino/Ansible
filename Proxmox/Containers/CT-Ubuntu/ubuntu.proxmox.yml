@@ -2,7 +2,7 @@
   tasks:
   - name: Create new container with minimal options
     community.general.proxmox:
-      node: pve2
+      node: pve
       api_user: root@pam
       api_password: Pa$$w0rd
       api_host: 192.168.1.10
