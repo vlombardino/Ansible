@@ -104,3 +104,8 @@ Install a package
 ```
 ansible -b --become-method=sudo -m shell -a 'apt install -y vim' docker
 ```
+
+### Run playbook with command
+```bash
+ansible-playbook -i 192.168.1.100, -u root -k first_playbook.yml
+```
